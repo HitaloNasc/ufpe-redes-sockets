@@ -7,9 +7,9 @@
 ##
 
 <p align="center">
-  <img align="center" src='https://img.shields.io/badge/status-concluded-green' />
+  <img align="center" src='https://img.shields.io/badge/status-development-blue' />
   <img align="center" src='https://img.shields.io/badge/version-1.0-blue' />
-  <img align="center" src='https://img.shields.io/badge/release%20date-november/2022-blue' />
+  <img align="center" src='https://img.shields.io/badge/release%20date-setember/2023-blue' />
 </p>
 
 # Redes de computadores - Sockets
