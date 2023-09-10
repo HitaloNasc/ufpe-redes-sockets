@@ -31,7 +31,7 @@ def handle_client_request(server_socket: socket) -> None:
 
     """
     data, client_address = server_socket.recvfrom(1024)
-    print(f"Conexão estabelecida com {client_address}")
+    print(f"Connection established with {client_address}")
 
     if not data:
         return

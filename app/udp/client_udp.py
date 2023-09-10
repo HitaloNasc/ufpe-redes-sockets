@@ -58,7 +58,7 @@ def send_equation(client_socket: socket, equation: str) -> None:
 
     # Calculate connection time
     connection_time = (end_time - start_time) * 1000
-    print(f"\tTempo de conexão: {connection_time:.10f} ms")
+    print(f"\tTime: {connection_time:.10f} ms")
 
 
 def main() -> None:
