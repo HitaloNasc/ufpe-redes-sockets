@@ -1,6 +1,6 @@
 import socket
 import time
-from consts import HOST, SERVER_UDP_PORT
+from consts import HOST, SERVER_DNS_PORT
 
 equations = [
     '5 * 4',    '6 + 11',
@@ -40,8 +40,16 @@ def send_equation(client_socket: socket, equation: str) -> None:
     # Start timer
     start_time = time.perf_counter()
 
+    # Get IP address of the server
+    client_socket.sendto('udp-server'.encode(), (HOST, SERVER_DNS_PORT))
+    server_address = client_socket.recv(1024).decode()
+    IP_SERVER, PORT_SERVER = server_address.split(':')
+
     # Send numbers and operation to the server
-    client_socket.sendto(equation.encode(), (HOST, SERVER_UDP_PORT))
+    client_socket.sendto(
+        equation.encode(),
+        (IP_SERVER, int(PORT_SERVER))
+    )
 
     # Receive and display the server's response
     result = client_socket.recv(1024).decode()
