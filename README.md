@@ -12,4 +12,177 @@
   <img align="center" src='https://img.shields.io/badge/release%20date-setember/2023-blue' />
 </p>
 
-# Redes de computadores - Sockets
+# Redes de computadores - Projeto de Sockets
+
+## Estrutura de diretórios
+
+```
+.
+├── apps
+│   ├── dns
+│   │   ├── consts.py
+│   │   ├── __init__.py
+│   │   └── server.py
+│   ├── tcp
+│   │   ├── client.py
+│   │   ├── consts.py
+│   │   ├── __init__.py
+│   │   └── server.py
+│   └── udp
+│       ├── client.py
+│       ├── consts.py
+│       ├── __init__.py
+│       └── server.py
+├── dns_server.sh
+├── README.md
+├── setup.sh
+├── tcp_client.sh
+├── tcp_server.sh
+├── udp_client.sh
+└── udp_server.sh
+
+```
+
+- O diretório `apps/` contém os aplicativos DNS, TCP e UDP.
+- `setup.sh` é um script shell para preparar uma venv para execução dos aplicativos.
+- `dns_server.sh`, `tcp_server.sh`, `tcp_client.sh`, `udp_server.sh` e `udp_client.sh` são scripts shell para executar os aplicativos correspondentes.
+
+## Pré-requisitos
+
+Antes de executar os aplicativos, certifique-se de ter o Python instalado em seu sistema.
+
+## Executando os Aplicativos com os shell scripts
+
+Siga as etapas abaixo para executar cada aplicativo:
+
+### Preparando uma venv (Opcional)
+
+1. Abra um terminal no diretório raiz.
+
+2. Execute o seguinte comando para criar um venv:
+
+    ```bash
+    ./setup.sh
+
+### Servidor DNS
+
+1. Abra um terminal no diretório raiz.
+
+2. Execute o seguinte comando para iniciar o servidor DNS:
+
+   ```bash
+   ./dns_server.sh
+
+### Servidor UDP
+
+1. Abra um terminal no diretório raiz.
+
+2. Execute o seguinte comando para iniciar o servidor UDP:
+
+   ```bash
+   ./udp_server.sh
+
+### Cliente UDP
+
+1. Abra um terminal no diretório raiz.
+
+2. Execute o seguinte comando para iniciar o cliente UDP:
+
+   ```bash
+   ./udp_client.sh
+
+### Servidor TCP
+
+1. Abra um terminal no diretório raiz.
+
+2. Execute o seguinte comando para iniciar o servidor TCP:
+
+   ```bash
+   ./tcp_server.sh
+
+### Cliente TCP
+
+1. Abra um terminal no diretório raiz.
+
+2. Execute o seguinte comando para iniciar o cliente TCP:
+
+   ```bash
+   ./tcp_client.sh
+
+## Executando os Aplicativos manualmente
+
+Siga as etapas abaixo para executar cada aplicativo:
+
+### Preparando uma venv (Opcional)
+
+1. Abra um terminal no diretório raiz.
+
+2. Execute o seguinte comando para criar um venv:
+
+    ```bash
+    python -m venv venv
+   
+3. Execute o seguinte comando para ativar a venv:
+
+    ```bash
+    source venv/bin/activate
+
+### Servidor DNS
+
+1. Abra um terminal no diretório raiz.
+
+2. Navegue até o diretóro `apps/dns`.
+
+3. Execute o seguinte comando para iniciar o servidor DNS:
+
+   ```bash
+   python server.py
+
+### Servidor UDP
+
+1. Abra um terminal no diretório raiz.
+
+2. Navegue até o diretóro `apps/udp`.
+
+3. Execute o seguinte comando para iniciar o servidor UDP:
+
+   ```bash
+   python server.py
+
+### Cliente UDP
+
+1. Abra um terminal no diretório raiz.
+
+2. Navegue até o diretóro `apps/udp`.
+
+3. Execute o seguinte comando para iniciar o cliente UDP:
+
+   ```bash
+   python client.py
+
+### Servidor TCP
+
+1. Abra um terminal no diretório raiz.
+
+2. Navegue até o diretóro `apps/tcp`.
+
+3. Execute o seguinte comando para iniciar o servidor TCP:
+
+   ```bash
+   python server.py
+
+### Cliente TCP
+
+1. Abra um terminal no diretório raiz.
+
+2. Navegue até o diretóro `apps/tcp`.
+
+3. Execute o seguinte comando para iniciar o cliente TCP:
+
+   ```bash
+   python client.py
+
+## Autores
+
+| [<img src="https://avatars.githubusercontent.com/u/54161035?v=4" width=115><br><sub>Hítalo Nascimento</sub>](https://github.com/HitaloNasc) | [<img src="https://avatars.githubusercontent.com/u/100882928?v=4" width=115><br><sub>Ingrid Freire</sub>](https://github.com/ingridfsl) | 
+| :--------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
