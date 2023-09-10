@@ -6,5 +6,6 @@ SERVER_DNS_PORT = 8053
 
 # DNS table
 DOMAINS = {
-    'udp-server': f'{HOST}:4444'
+    'udp-server': f'{HOST}:4444',
+    'tcp-server': f'{HOST}:3333'
 }

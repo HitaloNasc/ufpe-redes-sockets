@@ -51,7 +51,7 @@ def main():
     The main function that creates a UDP server for evaluating mathematical expressions.
     """
     server_socket = create_udp_socket(HOST, SERVER_UDP_PORT)
-    print(f"Servidor UDP aguardando conexões em {HOST}:{SERVER_UDP_PORT}...")
+    print(f"UDP Server is listening on {HOST}:{SERVER_UDP_PORT}...")
 
     try:
         while True:
