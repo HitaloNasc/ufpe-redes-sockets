@@ -89,7 +89,7 @@ def main() -> None:
                 send_equation(client_socket, equation)
 
             # Wait for user input to exit
-            input()
+            input('Press any key to exit...')
 
     except KeyboardInterrupt:
         print("Exiting...")
