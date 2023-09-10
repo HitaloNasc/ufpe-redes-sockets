@@ -54,11 +54,11 @@ def send_equation(client_socket: socket, equation: str) -> None:
     # Receive and display the server's response
     result = client_socket.recv(1024).decode()
     end_time = time.perf_counter()
-    print(f"Resultado: {result}")
+    print(f'\t{equation} = {result}')
 
     # Calculate connection time
     connection_time = (end_time - start_time) * 1000
-    print(f"Tempo de conexão: {connection_time:.10f} ms")
+    print(f"\tTempo de conexão: {connection_time:.10f} ms")
 
 
 def main() -> None:
@@ -85,7 +85,7 @@ def main() -> None:
         while True:
             # Request user input
             for equation in equations:
-                print(equation)
+                print(f'Equation: {equation}')
                 send_equation(client_socket, equation)
 
             # Wait for user input to exit

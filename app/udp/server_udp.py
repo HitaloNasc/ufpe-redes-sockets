@@ -40,6 +40,7 @@ def handle_client_request(server_socket: socket) -> None:
 
     try:
         result = eval(equation)
+        print(f'\t{equation} = {result}')
         server_socket.sendto(str(result).encode(), client_address)
     except Exception as e:
         server_socket.sendto(str(e).encode(), client_address)
