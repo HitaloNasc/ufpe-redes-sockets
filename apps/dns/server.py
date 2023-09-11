@@ -1,5 +1,8 @@
 import socket
 from consts import DOMAINS, HOST, SERVER_DNS_PORT
+from logger import Logger
+
+logger = Logger("DNS SERVER")
 
 dns_cache = {}
 
@@ -17,12 +20,12 @@ def resolve_dns_query(domain_name: str) -> str:
     """
     if domain_name in dns_cache:
         # If the entry is in the cache, reuse the response
-        print('\tDomain found in cache')
+        logger.info("Domain found in cache")
         return dns_cache[domain_name]
     else:
         # If the domain is not in the cache, resolve the query
         response_data = DOMAINS[domain_name]
-        print('\tDomain resolved')
+        logger.info("Domain resolved")
 
         # Add to the cache
         dns_cache[domain_name] = response_data
@@ -39,29 +42,36 @@ def main() -> None:
     # Create a UDP socket for the DNS server
     udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     udp_socket.bind((HOST, SERVER_DNS_PORT))
-    print("DNS Server is running...")
+    logger.info(f"DNS Server is running on {HOST}:{SERVER_DNS_PORT}")
 
-    while True:
-        # Handle DNS queries
-        data, client_address = udp_socket.recvfrom(1024)
-        print("UDP connection established")
+    try:
+        while True:
+            # Handle DNS queries
+            data, client_address = udp_socket.recvfrom(1024)
+            logger.log("UDP connection established")
 
-        # Get the domain name from the query
-        domain_name = data.decode()
-        print(f'\tDomain name: {domain_name}')
+            # Get the domain name from the query
+            domain_name = data.decode()
+            logger.log(f"Domain name: {domain_name}")
 
-        # Check if the domain is in the cache and resolve the request
-        ip_address = resolve_dns_query(domain_name)
+            # Check if the domain is in the cache and resolve the request
+            ip_address = resolve_dns_query(domain_name)
 
-        if not ip_address:
-            raise Exception('Domain not found')
+            if not ip_address:
+                raise Exception("Domain not found")
 
-        print(f'\tIP address: {ip_address}')
+            logger.log(f"IP address: {ip_address}")
 
-        response = ip_address.encode()
+            response = ip_address.encode()
 
-        # Send the DNS response back to the client
-        udp_socket.sendto(response, client_address)
+            # Send the DNS response back to the client
+            udp_socket.sendto(response, client_address)
+
+    except KeyboardInterrupt:
+        logger.log("Exiting...")
+
+    finally:
+        udp_socket.close()
 
 
 if __name__ == "__main__":

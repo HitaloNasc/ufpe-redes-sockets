@@ -1,5 +1,8 @@
 import socket
 from consts import HOST, SERVER_UDP_PORT
+from logger import Logger
+
+logger = Logger("UDP SERVER")
 
 
 def create_udp_socket(host: str, port: int) -> socket:
@@ -31,7 +34,7 @@ def handle_client_request(server_socket: socket) -> None:
 
     """
     data, client_address = server_socket.recvfrom(1024)
-    print(f"Connection established with {client_address}")
+    logger.log(f"Connection established with {client_address}")
 
     if not data:
         return
@@ -40,7 +43,7 @@ def handle_client_request(server_socket: socket) -> None:
 
     try:
         result = eval(equation)
-        print(f'\t{equation} = {result}')
+        logger.log(f"{equation} = {result}")
         server_socket.sendto(str(result).encode(), client_address)
     except Exception as e:
         server_socket.sendto(str(e).encode(), client_address)
@@ -51,13 +54,13 @@ def main():
     The main function that creates a UDP server for evaluating mathematical expressions.
     """
     server_socket = create_udp_socket(HOST, SERVER_UDP_PORT)
-    print(f"UDP Server is listening on {HOST}:{SERVER_UDP_PORT}...")
+    logger.info(f"UDP Server is running on {HOST}:{SERVER_UDP_PORT}")
 
     try:
         while True:
             handle_client_request(server_socket)
     except KeyboardInterrupt:
-        print("Exiting...")
+        logger.log("Exiting...")
     finally:
         server_socket.close()
 

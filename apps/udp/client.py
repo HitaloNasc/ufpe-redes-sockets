@@ -1,14 +1,17 @@
 import socket
 import time
 from consts import HOST, SERVER_DNS_PORT
+from logger import Logger
 
-DOMAIN_NAME = 'udp-server'
+logger = Logger("UDP CLIENT")
+
+DOMAIN_NAME = "udp-server"
 equations = [
-    '5 * 4',
-    '6 - 8',
-    '1 - 8',
-    '2**8',
-    '14 / 5',
+    "5 * 4",
+    "6 - 8",
+    "1 - 8",
+    "2**8",
+    "14 / 5",
 ]
 
 
@@ -28,13 +31,13 @@ def find_ip_address(domain_name: str) -> tuple:
             # Send a DNS query to resolve the domain name
             client_udp.sendto(DOMAIN_NAME.encode(), (HOST, SERVER_DNS_PORT))
             server_address = client_udp.recv(1024).decode()
-            ip_address, server_port = server_address.split(':')
+            ip_address, server_port = server_address.split(":")
 
         return (ip_address, int(server_port))
 
     except Exception as e:
         # Handle any exceptions that may occur during DNS resolution
-        print(f"Error resolving domain '{domain_name}': {str(e)}")
+        logger.log(f"Error resolving domain '{domain_name}': {str(e)}")
         return (None, None)
 
 
@@ -80,23 +83,29 @@ def main() -> None:
         None
     """
 
-    for equation in equations:
-        print(f'Equation: {equation}')
+    logger.info("UDP Client is running")
 
-        time_start = time.perf_counter()
+    try:
+        for equation in equations:
+            logger.log(f"Equation: {equation}")
 
-        # Find de ip address of the server
-        ip_address, port = find_ip_address(DOMAIN_NAME)
+            time_start = time.perf_counter()
 
-        # Resolve the equation
-        result = resolve_equation(ip_address, port, equation)
-        print(f'\tResult: {result}')
+            # Find de ip address of the server
+            ip_address, port = find_ip_address(DOMAIN_NAME)
 
-        time_end = time.perf_counter()
-        print(f'\tTime: {(time_end - time_start) * 1000:.10f}ms')
+            # Resolve the equation
+            result = resolve_equation(ip_address, port, equation)
+            logger.log(f"Result: {result}")
 
-    input('Press any key to exit...')
-    print('Bye!')
+            time_end = time.perf_counter()
+            logger.log(f"Time: {(time_end - time_start) * 1000:.10f}ms")
+
+        input("Press any key to exit...")
+        logger.log("Bye!")
+
+    except KeyboardInterrupt:
+        logger.log("Exiting...")
 
 
 if __name__ == "__main__":
