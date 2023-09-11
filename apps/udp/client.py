@@ -89,10 +89,10 @@ def main() -> None:
         for equation in equations:
             logger.log(f"Equation: {equation}")
 
-            time_start = time.perf_counter()
-
             # Find de ip address of the server
             ip_address, port = find_ip_address(DOMAIN_NAME)
+
+            time_start = time.perf_counter()
 
             # Resolve the equation
             result = resolve_equation(ip_address, port, equation)
