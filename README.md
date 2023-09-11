@@ -33,25 +33,33 @@
 │       ├── consts.py
 │       ├── __init__.py
 │       └── server.py
+├── dns_server.bat
 ├── dns_server.sh
 ├── README.md
+├── setup.bat
 ├── setup.sh
+├── tcp_client.bat
 ├── tcp_client.sh
+├── tcp_server.bat
 ├── tcp_server.sh
+├── udp_client.bat
 ├── udp_client.sh
+├── udp_server.bat
 └── udp_server.sh
 
 ```
 
 - O diretório `apps/` contém os aplicativos DNS, TCP e UDP.
+- `setup.bat` é um Batch Script para preparar uma venv para execução dos aplicativos.
 - `setup.sh` é um script shell para preparar uma venv para execução dos aplicativos.
+- `dns_server.bat`, `tcp_server.bat`, `tcp_client.bat`, `udp_server.bat` e `udp_client.bat` são Batch Script para executar os aplicativos correspondentes.
 - `dns_server.sh`, `tcp_server.sh`, `tcp_client.sh`, `udp_server.sh` e `udp_client.sh` são scripts shell para executar os aplicativos correspondentes.
 
 ## Pré-requisitos
 
 Antes de executar os aplicativos, certifique-se de ter o Python instalado em seu sistema.
 
-## Executando os Aplicativos com os shell scripts
+## Executando os Aplicativos com os scripts preparados
 
 Siga as etapas abaixo para executar cada aplicativo:
 
@@ -60,9 +68,18 @@ Siga as etapas abaixo para executar cada aplicativo:
 1. Abra um terminal no diretório raiz.
 
 2. Execute o seguinte comando para criar um venv:
+   
+   No Windows
 
-    ```bash
-    ./setup.sh
+   ```bash
+   ./setup.bat
+   ```
+
+   No Linux
+
+   ```bash
+   ./setup.sh
+   ```
 
 ### Servidor DNS
 
@@ -70,17 +87,34 @@ Siga as etapas abaixo para executar cada aplicativo:
 
 2. Execute o seguinte comando para iniciar o servidor DNS:
 
+   No Windows
+
+   ```bash
+   ./dns_server.bat
+   ```
+
+   No Linux
+
    ```bash
    ./dns_server.sh
+   ```
 
 ### Servidor UDP
 
 1. Abra um terminal no diretório raiz.
 
 2. Execute o seguinte comando para iniciar o servidor UDP:
+   
+   No Windowns
+
+   ```bash
+   ./udp_server.bat
+   ```
+   No Linux
 
    ```bash
    ./udp_server.sh
+   ```
 
 ### Cliente UDP
 
@@ -88,8 +122,17 @@ Siga as etapas abaixo para executar cada aplicativo:
 
 2. Execute o seguinte comando para iniciar o cliente UDP:
 
+   No Windows
+
+   ```bash
+   ./udp_client.bat
+   ```
+
+   No Linux
+
    ```bash
    ./udp_client.sh
+   ```
 
 ### Servidor TCP
 
@@ -97,8 +140,17 @@ Siga as etapas abaixo para executar cada aplicativo:
 
 2. Execute o seguinte comando para iniciar o servidor TCP:
 
+   No Windows
+
+   ```bash
+   ./tcp_server.bat
+   ```
+
+   No Linux
+
    ```bash
    ./tcp_server.sh
+   ```
 
 ### Cliente TCP
 
@@ -106,8 +158,17 @@ Siga as etapas abaixo para executar cada aplicativo:
 
 2. Execute o seguinte comando para iniciar o cliente TCP:
 
+   No Windows
+
+   ```bash
+   ./tcp_client.bat
+   ```
+
+   No Linux
+
    ```bash
    ./tcp_client.sh
+   ```
 
 ## Executando os Aplicativos manualmente
 
