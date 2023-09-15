@@ -22,19 +22,34 @@
 │   ├── dns
 │   │   ├── consts.py
 │   │   ├── __init__.py
+│   │   ├── logger.py
 │   │   └── server.py
+│   ├── __init__.py
 │   ├── tcp
 │   │   ├── client.py
 │   │   ├── consts.py
 │   │   ├── __init__.py
+│   │   ├── logger.py
 │   │   └── server.py
 │   └── udp
 │       ├── client.py
 │       ├── consts.py
 │       ├── __init__.py
+│       ├── logger.py
 │       └── server.py
 ├── dns_server.bat
 ├── dns_server.sh
+├── docs
+│   ├── print-terminals
+│   │   ├── terminal-dns.png
+│   │   ├── terminals-tcp.png
+│   │   └── terminals-udp.png
+│   └── print-wireshark
+│       ├── wireshark-tcp-1.png
+│       ├── wireshark-tcp-2.png
+│       ├── wireshark-tcp-3.png
+│       ├── wireshark-tcp-4.png
+│       └── wireshark-udp.png
 ├── README.md
 ├── setup.bat
 ├── setup.sh
@@ -46,6 +61,7 @@
 ├── udp_client.sh
 ├── udp_server.bat
 └── udp_server.sh
+
 
 ```
 
@@ -68,7 +84,7 @@ Siga as etapas abaixo para executar cada aplicativo:
 1. Abra um terminal no diretório raiz.
 
 2. Execute o seguinte comando para criar um venv:
-   
+
    No Windows
 
    ```bash
@@ -104,12 +120,13 @@ Siga as etapas abaixo para executar cada aplicativo:
 1. Abra um terminal no diretório raiz.
 
 2. Execute o seguinte comando para iniciar o servidor UDP:
-   
+
    No Windowns
 
    ```bash
    ./udp_server.bat
    ```
+
    No Linux
 
    ```bash
@@ -180,13 +197,16 @@ Siga as etapas abaixo para executar cada aplicativo:
 
 2. Execute o seguinte comando para criar um venv:
 
-    ```bash
-    python -m venv venv
-   
+   ```bash
+   python -m venv venv
+
+   ```
+
 3. Execute o seguinte comando para ativar a venv:
 
-    ```bash
-    source venv/bin/activate
+   ```bash
+   source venv/bin/activate
+   ```
 
 ### Servidor DNS
 
@@ -198,6 +218,7 @@ Siga as etapas abaixo para executar cada aplicativo:
 
    ```bash
    python server.py
+   ```
 
 ### Servidor UDP
 
@@ -209,6 +230,7 @@ Siga as etapas abaixo para executar cada aplicativo:
 
    ```bash
    python server.py
+   ```
 
 ### Cliente UDP
 
@@ -220,6 +242,7 @@ Siga as etapas abaixo para executar cada aplicativo:
 
    ```bash
    python client.py
+   ```
 
 ### Servidor TCP
 
@@ -231,6 +254,7 @@ Siga as etapas abaixo para executar cada aplicativo:
 
    ```bash
    python server.py
+   ```
 
 ### Cliente TCP
 
@@ -242,8 +266,9 @@ Siga as etapas abaixo para executar cada aplicativo:
 
    ```bash
    python client.py
+   ```
 
 ## Autores
 
-| [<img src="https://avatars.githubusercontent.com/u/54161035?v=4" width=115><br><sub>Hítalo Nascimento</sub>](https://github.com/HitaloNasc) | [<img src="https://avatars.githubusercontent.com/u/100882928?v=4" width=115><br><sub>Ingrid Freire</sub>](https://github.com/ingridfsl) | 
-| :--------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars.githubusercontent.com/u/54161035?v=4" width=115><br><sub>Hítalo Nascimento</sub>](https://github.com/HitaloNasc) | [<img src="https://avatars.githubusercontent.com/u/100882928?v=4" width=115><br><sub>Ingrid Freire</sub>](https://github.com/ingridfsl) |
+| :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------: |
